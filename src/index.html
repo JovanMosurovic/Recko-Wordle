@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REČKO</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+
+        <div class="header-left">
+            <button id="help-btn" class="header-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <g fill="none">
+                        <path stroke="#333333" stroke-linecap="round" stroke-width="1.5"
+                              d="M10.125 8.875a1.875 1.875 0 1 1 2.828 1.615c-.475.281-.953.708-.953 1.26V13"/>
+                        <circle cx="12" cy="16" r="1" fill="#333333"/>
+                        <path stroke="#333333" stroke-linecap="round" stroke-width="1.5"
+                              d="M22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12s0-7.071 1.464-8.536C4.93 2 7.286 2 12 2s7.071 0 8.535 1.464c.974.974 1.3 2.343 1.41 4.536"/>
+                    </g>
+                </svg>
+            </button>
+            <div class="language-switcher">
+                <button id="lang-sr" class="header-btn lang-btn active" data-lang="sr">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+                        <path fill="#0C4076" d="M0 13h36v10H0z"/>
+                        <path fill="#EEE" d="M0 27c0 2.209 1.791 4 4 4h28c2.209 0 4-1.791 4-4v-4H0v4z"/>
+                        <path fill="#C6363C"
+                              d="M36 9c0-2.209-1.791-4-4-4H4C1.791 5 0 6.791 0 9v4h36V9zM7 13v9.5c0 3.037 2.462 5.5 5.5 5.5s5.5-2.463 5.5-5.5V13H7z"/>
+                        <path fill="#EDB92E"
+                              d="M12.5 7.062c-3.938 0-5.172 1.672-4.844 2.297.328.625 1.312 2.234 1.312 2.234s-.312.125 0 .75 1.531.203 3.531.203 3.219.422 3.531-.203 0-.75 0-.75.984-1.609 1.313-2.234c.329-.625-.905-2.297-4.843-2.297zm-3.438 2.969c-.283.088 0 .953-.1.579-.082-.309-.4-.438-.4-.266s-.125 0-.094-.312c.031-.313-.062-.5-.25-.766-.187-.266-.187-.5.048-.657.234-.156.75-.281.75-.281s.203.891.312 1.094c.109.203.312.336.312.336s-.094.148 0 .226c.094.078.203.266.203.266s-.343-.281-.405-.219c-.062.062.078.141.062.25-.016.11-.188-.328-.438-.25zm3.188.016c-.078.078-.141-.063-.297-.172-.156-.109-.25-.046-.219.079s-.188.109-.188.297-.203.109-.203.109.25-.656-.172-.641c-.239.009-.156.5 0 .672-.069-.105-.266-.109-.43-.234s.023-.329-.102-.282c-.125.047-.203.25-.328.297s-.062-.142 0-.297c.062-.156-.072-.234-.072-.234s.01-.109.104-.172c.094-.062.125-.172 0-.297s-.577-.828-.437-1.063c.141-.234.609-.5 1.922-.469.234 1.078-.125 1.609-.125 1.609s.266.172.344.266c-.188.079-.047.157.078.266.125.11.203.188.125.266zm2.438-.172c.062.156.125.344 0 .297s-.203-.25-.328-.297c-.125-.047.062.157-.102.282-.164.125-.36.129-.43.234.156-.172.239-.663 0-.672-.422-.016-.172.641-.172.641s-.203.078-.203-.109-.219-.172-.188-.297-.062-.188-.219-.079c-.156.109-.219.25-.297.172-.078-.078 0-.156.125-.266.126-.109.267-.187.079-.265.078-.094.344-.266.344-.266s-.359-.531-.125-1.609c1.312-.031 1.781.234 1.922.469.141.234-.312.938-.438 1.062s-.094.234 0 .297c.094.062.104.172.104.172s-.135.078-.072.234zm2.093-.609c-.188.266-.281.453-.25.766.031.312-.094.484-.094.312s-.318-.042-.4.266c-.1.374.183-.49-.1-.579-.25-.078-.578.672-.5.594s.188-.531.125-.594c-.062-.063-.406.219-.406.219s.109-.188.203-.266c.094-.078 0-.226 0-.226s.203-.133.312-.336c.109-.203.312-1.094.312-1.094s.516.125.75.281.236.391.048.657z"/>
+                        <path fill="#FFAC33"
+                              d="M12.609 7.242c0 .099-.081.18-.18.18-.099 0-.18-.081-.18-.18V5.664c0-.099.081-.18.18-.18.099 0 .18.081.18.18v1.578z"/>
+                        <path fill="#EDB92E"
+                              d="M12.969 6.086c0 .091-.073.164-.164.164h-.781c-.091 0-.164-.073-.164-.164 0-.091.073-.164.164-.164h.781c.091 0 .164.073.164.164z"/>
+                        <path fill="#0C4076"
+                              d="M13.016 7.062c0 .332-.269.602-.602.602-.332 0-.602-.27-.602-.602s.269-.602.602-.602c.332.001.602.27.602.602zm-3.412 5.214c0 .147-.169.266-.378.266s-.378-.119-.378-.266c0-.146.169-.265.378-.265s.378.118.378.265z"/>
+                        <path fill="#C6363C"
+                              d="M11.125 12.185c0 .147-.169.266-.378.266s-.378-.119-.378-.266c0-.146.169-.265.378-.265.208 0 .378.119.378.265zm3.375 0c0 .147-.169.266-.378.266s-.378-.119-.378-.266c0-.146.169-.265.378-.265.208 0 .378.119.378.265z"/>
+                        <path fill="#0C4076"
+                              d="M16.062 12.276c0 .147-.169.266-.378.266s-.378-.119-.378-.266c0-.146.169-.265.378-.265s.378.118.378.265zm-3.254-.11c0 .147-.169.266-.378.266s-.378-.119-.378-.266c0-.147.169-.265.378-.265s.378.118.378.265z"/>
+                        <path fill="#EDB92E"
+                              d="M10.286 22.562c-.342.776-.378 1.158-.783 1.131-.406-.027-.692-.096-.692.068 0 .163.645.095.645.095s-.609.26-.489.559c.119.3.645-.381.645-.381s.107.027.31-.137c.203-.163.74-.953.74-.953l-.376-.382zm4.412 0c.342.776.378 1.158.783 1.131.406-.027.692-.096.692.068 0 .163-.644.095-.644.095s.609.26.489.559c-.119.3-.645-.381-.645-.381s-.107.027-.31-.137c-.203-.163-.74-.953-.74-.953l.375-.382z"/>
+                        <path fill="#FFF"
+                              d="M17.114 15.688c-.176-1.208-1.313-.833-1.796 0-.483.833-.9 1.333-1.347.75-.447-.583-.742-1.208-.096-2l.646-.792c-.092-.479-.479-.375-1.033-.146-.554.229-.904.125-.849.375.056.25.258.271.258.271s-.349.34-.441 1.513c-.092-1.173-.441-1.513-.441-1.513s.203-.021.258-.271c.055-.25-.295-.146-.849-.375s-.941-.333-1.033.146l.646.792c.646.792.351 1.417-.096 2-.446.583-.864.146-1.347-.688-.483-.833-1.621-1.208-1.796 0-.176 1.208.028 3.312.028 3.312s-.111 1.146.111 2.125c.221.979.351 1.854 0 2.604.387-.104.627-.604.627-.604s-.129.604.111.542c.24-.062.295-.521.479-.688.185-.166.333-.541.333-.541s.388-.146 0 .5c.314.021.517-.188.517-.188l.11.584.185-.312.092.562.332-.542.218.25s.041-1.062.336-.854c.295.208.313.896.111 1.312-.203.416 0 .584 0 .584s-.295.438-.446.688c-.151.25.078.541.078.541s-.572.854-.413 1.188c.154.32 1.107.524 1.804.539l.006.003.039-.001.039.001.006-.003c.697-.015 1.65-.219 1.804-.539.16-.333-.413-1.188-.413-1.188s.228-.291.078-.541c-.151-.25-.447-.688-.447-.688s.203-.168 0-.584c-.202-.416-.184-1.104.111-1.312.295-.208.335.854.335.854l.218-.25.332.542.092-.562.185.312.11-.584s.203.208.517.188c-.388-.646 0-.5 0-.5s.148.375.332.542.24.625.48.688c.24.062.111-.542.111-.542s.24.5.627.604c-.35-.75-.221-1.626 0-2.604.222-.979.111-2.125.111-2.125s.206-2.167.03-3.375z"/>
+                        <path fill="#EDB92E"
+                              d="M11.891 14.312c-.44-.422-1.538-.969-1.902-.891-.364.079-.656.329-.385.72.271.391.385.375.385.375s.433-.391.621-.172c.188.219.031.297-.312.328-.344.031-.693-.203-.693-.203s.113.406.59.453c.321.312.726.078.93.078s1.156-.312.766-.688zm1.131 0c.44-.422 1.538-.969 1.902-.891.364.078.656.328.385.719-.271.391-.385.375-.385.375s-.433-.391-.621-.172c-.188.219-.031.297.312.328.344.031.693-.203.693-.203s-.113.406-.59.453c-.321.313-.726.079-.93.079s-1.157-.312-.766-.688zM9.969 25.199c.137-.316.041-.361-.069-.471-.111-.109-.166-.262-.166-.262s-.055.152-.166.262c-.111.109-.207.154-.07.471-.333-.197-.388.164-.235.383.043-.197.305-.152.305.088s-.217.131-.191.229c.027.099.225.306.356.306.131 0 .33-.207.356-.306.027-.099-.19.011-.19-.229 0-.24.261-.285.305-.088.154-.219.099-.58-.235-.383zm5.438 0c.137-.316.041-.361-.07-.471-.111-.109-.166-.262-.166-.262s-.055.152-.166.262c-.111.109-.207.154-.07.471-.333-.197-.388.164-.235.383.043-.197.305-.152.305.088s-.217.131-.19.229c.026.099.225.306.356.306.131 0 .33-.207.356-.306.027-.099-.19.011-.19-.229 0-.24.261-.285.305-.088.153-.219.099-.58-.235-.383z"/>
+                        <path fill="#C6363C"
+                              d="M10.244 16.875v3.859c0 1.233 1 2.234 2.234 2.234s2.234-1.001 2.234-2.234v-3.859h-4.468z"/>
+                        <path fill="#EEE"
+                              d="M14.712 19.172H12.96v-2.297h-.962v2.297h-1.753v.963h1.753v2.779c.155.034.315.055.481.055.166 0 .326-.021.482-.055v-2.779h1.753v-.963z"/>
+                    </svg>
+                </button>
+                <button id="lang-en" class="header-btn lang-btn" data-lang="en">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+                        <path fill="#00247D"
+                              d="M0 9.059V13h5.628zM4.664 31H13v-5.837zM23 25.164V31h8.335zM0 23v3.941L5.63 23zM31.337 5H23v5.837zM36 26.942V23h-5.631zM36 13V9.059L30.371 13zM13 5H4.664L13 10.837z"/>
+                        <path fill="#CF1B2B"
+                              d="M25.14 23l9.712 6.801c.471-.479.808-1.082.99-1.749L28.627 23H25.14zM13 23h-2.141l-9.711 6.8c.521.53 1.189.909 1.938 1.085L13 23.943V23zm10-10h2.141l9.711-6.8c-.521-.53-1.188-.909-1.937-1.085L23 12.057V13zm-12.141 0L1.148 6.2C.677 6.68.34 7.282.157 7.949L7.372 13h3.487z"/>
+                        <path fill="#EEE"
+                              d="M36 21H21v10h2v-5.836L31.335 31H32c1.117 0 2.126-.461 2.852-1.199L25.14 23h3.487l7.215 5.052c.093-.337.158-.686.158-1.052v-.058L30.369 23H36v-2zM0 21v2h5.63L0 26.941V27c0 1.091.439 2.078 1.148 2.8l9.711-6.8H13v.943l-9.914 6.941c.294.07.598.116.914.116h.664L13 25.163V31h2V21H0zM36 9c0-1.091-.439-2.078-1.148-2.8L25.141 13H23v-.943l9.915-6.942C32.62 5.046 32.316 5 32 5h-.663L23 10.837V5h-2v10h15v-2h-5.629L36 9.059V9zM13 5v5.837L4.664 5H4c-1.118 0-2.126.461-2.852 1.2l9.711 6.8H7.372L.157 7.949C.065 8.286 0 8.634 0 9v.059L5.628 13H0v2h15V5h-2z"/>
+                        <path fill="#CF1B2B" d="M21 15V5h-6v10H0v6h15v10h6V21h15v-6z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <h1 class="header-title" data-translate="game-title">REČKO</h1>
+
+        <div class="header-right">
+            <button id="stats-btn" class="header-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="none" stroke="#333333" stroke-linecap="round" stroke-width="1.5"
+                          d="M7 18V9m5 9V6m5 12v-5m5-1c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12s0-7.071 1.464-8.536C4.93 2 7.286 2 12 2s7.071 0 8.535 1.464c.974.974 1.3 2.343 1.41 4.536"/>
+                </svg>
+            </button>
+            <button id="settings-btn" class="header-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <g fill="none" stroke="#333333" stroke-width="1.5">
+                        <path stroke-linecap="round"
+                              d="M7.843 20.198C9.872 21.399 10.886 22 12 22s2.128-.6 4.157-1.802l.686-.407c2.029-1.2 3.043-1.802 3.6-2.791c.557-.99.557-2.19.557-4.594M20.815 8a3.6 3.6 0 0 0-.372-1c-.557-.99-1.571-1.59-3.6-2.792l-.686-.406C14.128 2.601 13.114 2 12 2s-2.128.6-4.157 1.802l-.686.406C5.128 5.41 4.114 6.011 3.557 7C3 7.99 3 9.19 3 11.594v.812c0 2.403 0 3.605.557 4.594c.226.402.528.74.943 1.08"/>
+                        <circle cx="12" cy="12" r="3"/>
+                    </g>
+                </svg>
+            </button>
+        </div>
+
+    </div>
+</header>
+
+<main>
+    <!-- Game grid - 6x5 -->
+    <div id="game-grid" class="game-grid">
+        <!-- Row 1 -->
+        <div class="row">
+            <div class="letter-box" data-row="0" data-col="0"></div>
+            <div class="letter-box" data-row="0" data-col="1"></div>
+            <div class="letter-box" data-row="0" data-col="2"></div>
+            <div class="letter-box" data-row="0" data-col="3"></div>
+            <div class="letter-box" data-row="0" data-col="4"></div>
+        </div>
+        <!-- Row 2 -->
+        <div class="row">
+            <div class="letter-box" data-row="1" data-col="0"></div>
+            <div class="letter-box" data-row="1" data-col="1"></div>
+            <div class="letter-box" data-row="1" data-col="2"></div>
+            <div class="letter-box" data-row="1" data-col="3"></div>
+            <div class="letter-box" data-row="1" data-col="4"></div>
+        </div>
+        <!-- Row 3 -->
+        <div class="row">
+            <div class="letter-box" data-row="2" data-col="0"></div>
+            <div class="letter-box" data-row="2" data-col="1"></div>
+            <div class="letter-box" data-row="2" data-col="2"></div>
+            <div class="letter-box" data-row="2" data-col="3"></div>
+            <div class="letter-box" data-row="2" data-col="4"></div>
+        </div>
+        <!-- Row 4 -->
+        <div class="row">
+            <div class="letter-box" data-row="3" data-col="0"></div>
+            <div class="letter-box" data-row="3" data-col="1"></div>
+            <div class="letter-box" data-row="3" data-col="2"></div>
+            <div class="letter-box" data-row="3" data-col="3"></div>
+            <div class="letter-box" data-row="3" data-col="4"></div>
+        </div>
+        <!-- Row 5 -->
+        <div class="row">
+            <div class="letter-box" data-row="4" data-col="0"></div>
+            <div class="letter-box" data-row="4" data-col="1"></div>
+            <div class="letter-box" data-row="4" data-col="2"></div>
+            <div class="letter-box" data-row="4" data-col="3"></div>
+            <div class="letter-box" data-row="4" data-col="4"></div>
+        </div>
+        <!-- Row 6 -->
+        <div class="row">
+            <div class="letter-box" data-row="5" data-col="0"></div>
+            <div class="letter-box" data-row="5" data-col="1"></div>
+            <div class="letter-box" data-row="5" data-col="2"></div>
+            <div class="letter-box" data-row="5" data-col="3"></div>
+            <div class="letter-box" data-row="5" data-col="4"></div>
+        </div>
+    </div>
+
+    <div id="game-message" class="game-message hidden"></div>
+
+    <div id="keyboard" class="keyboard"></div>
+
+</main>
+
+<div id="help-modal" class="modal hidden">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 data-translate="help-title">Uputstvo</h2>
+            <button class="close-btn" data-modal="help">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p><strong data-translate="help-goal-label">Cilj igre:</strong> <span data-translate="help-goal-text">Treba pogoditi reč od 5 slova u maksimalno 6 pokušaja.</span>
+            </p>
+
+            <h3 data-translate="help-how-title">Uputstvo:</h3>
+            <ol>
+                <li data-translate="help-step1">Unesite reč od 5 slova i pritisnite ENTER</li>
+                <li data-translate="help-step2">Slova će biti obojena na osnovu tačnosti:</li>
+            </ol>
+
+            <!-- Example showing correct letter placement -->
+            <div class="example-row">
+                <div class="example-letter correct">К</div>
+                <div class="example-letter">У</div>
+                <div class="example-letter">Ћ</div>
+                <div class="example-letter">А</div>
+                <div class="example-letter">!</div>
+            </div>
+            <p><span class="correct-text" data-translate="help-correct-label">Зелено</span> - <span
+                    data-translate="help-correct-text">слово је на правом месту</span></p>
+
+            <!-- Example showing wrong position -->
+            <div class="example-row">
+                <div class="example-letter">П</div>
+                <div class="example-letter wrong-place">И</div>
+                <div class="example-letter">Л</div>
+                <div class="example-letter">О</div>
+                <div class="example-letter">Т</div>
+            </div>
+            <p><span class="wrong-place-text" data-translate="help-wrong-place-label">Жуто</span> - <span
+                    data-translate="help-wrong-place-text">слово постоји у речи, али на погрешном месту</span></p>
+
+            <!-- Example showing letter not in word -->
+            <div class="example-row">
+                <div class="example-letter">В</div>
+                <div class="example-letter">А</div>
+                <div class="example-letter wrong">Ж</div>
+                <div class="example-letter">Н</div>
+                <div class="example-letter">О</div>
+            </div>
+            <p><span class="wrong-text" data-translate="help-wrong-label">Сиво</span> - <span
+                    data-translate="help-wrong-text">слово се не налази у речи</span></p>
+        </div>
+    </div>
+</div>
+
+<div id="stats-modal" class="modal hidden">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 data-translate="stats-title">Статистике</h2>
+            <button class="close-btn" data-modal="stats">&times;</button>
+        </div>
+        <div class="modal-body">
+            <!-- Overall statistics -->
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number" id="total-games">0</div>
+                    <div class="stat-label" data-translate="stats-total">Укупно игара</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="win-percentage">0</div>
+                    <div class="stat-label" data-translate="stats-win-rate">% побеђених</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="current-streak">0</div>
+                    <div class="stat-label" data-translate="stats-current-streak">Тренутни низ</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="max-streak">0</div>
+                    <div class="stat-label" data-translate="stats-max-streak">Најдужи низ</div>
+                </div>
+            </div>
+
+            <!-- Guess distribution chart -->
+            <h3 data-translate="stats-distribution">Дистрибуција погодатака</h3>
+            <div class="guess-distribution">
+                <div class="guess-row">
+                    <span class="guess-number">1</span>
+                    <div class="guess-bar">
+                        <div class="guess-count" id="guess-1">0</div>
+                    </div>
+                </div>
+                <div class="guess-row">
+                    <span class="guess-number">2</span>
+                    <div class="guess-bar">
+                        <div class="guess-count" id="guess-2">0</div>
+                    </div>
+                </div>
+                <div class="guess-row">
+                    <span class="guess-number">3</span>
+                    <div class="guess-bar">
+                        <div class="guess-count" id="guess-3">0</div>
+                    </div>
+                </div>
+                <div class="guess-row">
+                    <span class="guess-number">4</span>
+                    <div class="guess-bar">
+                        <div class="guess-count" id="guess-4">0</div>
+                    </div>
+                </div>
+                <div class="guess-row">
+                    <span class="guess-number">5</span>
+                    <div class="guess-bar">
+                        <div class="guess-count" id="guess-5">0</div>
+                    </div>
+                </div>
+                <div class="guess-row">
+                    <span class="guess-number">6</span>
+                    <div class="guess-bar">
+                        <div class="guess-count" id="guess-6">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New game button -->
+            <button id="new-game-btn" class="new-game-button" data-translate="new-game-btn">Нова игра</button>
+        </div>
+    </div>
+</div>
+
+<div id="settings-modal" class="modal hidden">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 data-translate="settings-title">Settings</h2>
+            <button class="close-btn" data-modal="settings">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p>...</p>
+        </div>
+    </div>
+</div>
+
+<div id="modal-overlay" class="modal-overlay hidden"></div>
+
+<script src="translations.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

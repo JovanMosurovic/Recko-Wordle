@@ -1,0 +1,538 @@
+/* Global styles and CSS variables */
+:root {
+    --primary-color: #121213;
+    --secondary-color: #818384;
+    --background-color: #ffffff;
+    --correct-color: #6aaa64;
+    --wrong-place-color: #c9b458;
+    --wrong-color: #787c7e;
+    --border-color: #d3d6da;
+    --key-color: #d3d6da;
+    --key-pressed: #f3f3f3;
+    --text-primary: #121213;
+    --text-secondary: #787c7e;
+    --modal-background: rgba(0, 0, 0, 0.5);
+    --success-color: #6aaa64;
+    --error-color: #dc3545;
+}
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Utility class for hiding elements */
+.hidden {
+    display: none !important;
+}
+
+/* Header section */
+header {
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 20px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px 16px;
+    position: relative;
+}
+
+.header-left, .header-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header-container h1 {
+    position: absolute;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--text-primary);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Header buttons */
+.header-btn {
+    display: flex;
+    background: none;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-primary);
+    transition: background-color 0.2s ease;
+}
+
+.header-btn:hover {
+    background-color: var(--key-pressed);
+}
+
+.header-btn span {
+    font-size: 16px;
+}
+
+/* Language switcher */
+.language-switcher {
+    display: flex;
+    background-color: var(--border-color);
+    border-radius: 20px;
+    padding: 2px;
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 18px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+    min-width: 40px;
+}
+
+.lang-btn.active {
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.lang-btn:hover:not(.active) {
+    color: var(--text-primary);
+}
+
+/* Main content area */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 16px;
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Game grid styles */
+.game-grid {
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    gap: 5px;
+    margin-bottom: 20px;
+    padding: 20px 0;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+}
+
+/* Letter box styling and states */
+.letter-box {
+    width: 62px;
+    height: 62px;
+    border: 2px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    transition: all 0.2s ease-in-out;
+}
+
+/* Letter box states - filled but not submitted */
+.letter-box.filled {
+    border-color: var(--text-secondary);
+    animation: pop 0.1s ease-in-out;
+}
+
+/* Letter box states - correct position */
+.letter-box.correct {
+    background-color: var(--correct-color);
+    border-color: var(--correct-color);
+    color: white;
+}
+
+/* Letter box states - wrong position */
+.letter-box.wrong-place {
+    background-color: var(--wrong-place-color);
+    border-color: var(--wrong-place-color);
+    color: white;
+}
+
+/* Letter box states - not in word */
+.letter-box.wrong {
+    background-color: var(--wrong-color);
+    border-color: var(--wrong-color);
+    color: white;
+}
+
+/* Animation for letter input */
+@keyframes pop {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Game message */
+.game-message {
+    margin: 10px 0;
+    padding: 16px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 16px;
+    white-space: pre-line;
+}
+
+.game-message.success {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.game-message.error {
+    background-color: var(--error-color);
+    color: white;
+}
+
+.game-message.info {
+    background-color: var(--text-secondary);
+    color: white;
+}
+
+/* Keyboard */
+.keyboard {
+    width: 100%;
+    max-width: 500px;
+}
+
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    margin: 4px 0;
+    gap: 3px;
+}
+
+/* Individual key */
+.key {
+    background-color: var(--key-color);
+    border: none;
+    border-radius: 4px;
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    height: 58px;
+    min-width: 43px;
+    padding: 0 8px;
+    text-transform: uppercase;
+    transition: all 0.1s ease;
+    user-select: none;
+}
+
+/* Wide keys (Enter and Backspace) */
+.key-wide {
+    min-width: 65px;
+    font-size: 12px;
+}
+
+/* Key hover and active states */
+.key:hover {
+    background-color: var(--key-pressed);
+}
+
+.key:active {
+    transform: scale(0.95);
+}
+
+/* Key states based on game feedback */
+.key.correct {
+    background-color: var(--correct-color);
+    color: white;
+}
+
+.key.wrong-place {
+    background-color: var(--wrong-place-color);
+    color: white;
+}
+
+.key.wrong {
+    background-color: var(--wrong-color);
+    color: white;
+}
+
+/* Modal overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--modal-background);
+    z-index: 1000;
+}
+
+/* Modal container */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001;
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* Modal content box */
+.modal-content {
+    background-color: var(--background-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+/* Modal header */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modal-header h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+/* Close button */
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-secondary);
+    padding: 4px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.close-btn:hover {
+    background-color: var(--key-pressed);
+}
+
+/* Modal body */
+.modal-body {
+    padding: 24px;
+}
+
+.modal-body h3 {
+    margin: 20px 0 10px 0;
+    color: var(--text-primary);
+}
+
+.modal-body p {
+    margin: 10px 0;
+    color: var(--text-primary);
+}
+
+.modal-body ol {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.modal-body li {
+    margin: 5px 0;
+}
+
+/* Example rows in help modal */
+.example-row {
+    display: flex;
+    gap: 5px;
+    margin: 10px 0;
+    justify-content: center;
+}
+
+.example-letter {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    background-color: var(--background-color);
+}
+
+/* Example letter states */
+.example-letter.correct {
+    background-color: var(--correct-color);
+    border-color: var(--correct-color);
+    color: white;
+}
+
+.example-letter.wrong-place {
+    background-color: var(--wrong-place-color);
+    border-color: var(--wrong-place-color);
+    color: white;
+}
+
+.example-letter.wrong {
+    background-color: var(--wrong-color);
+    border-color: var(--wrong-color);
+    color: white;
+}
+
+/* Text colors for explanations */
+.correct-text {
+    color: var(--correct-color);
+    font-weight: 600;
+}
+
+.wrong-place-text {
+    color: var(--wrong-place-color);
+    font-weight: 600;
+}
+
+.wrong-text {
+    color: var(--wrong-color);
+    font-weight: 600;
+}
+
+/* Statistics container */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.stat-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    margin-top: 4px;
+}
+
+/* Guess distribution chart */
+.guess-distribution {
+    margin-top: 16px;
+}
+
+.guess-row {
+    display: flex;
+    align-items: center;
+    margin: 4px 0;
+    gap: 8px;
+}
+
+.guess-number {
+    font-weight: 600;
+    min-width: 20px;
+}
+
+.guess-bar {
+    flex: 1;
+    background-color: var(--border-color);
+    border-radius: 2px;
+    height: 20px;
+    position: relative;
+    min-width: 20px;
+}
+
+.guess-count {
+    background-color: var(--correct-color);
+    height: 100%;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 8px;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    min-width: 20px;
+    transition: width 0.3s ease;
+}
+
+/* New game button */
+.new-game-button {
+    background-color: var(--correct-color);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+    transition: background-color 0.2s ease;
+}
+
+.new-game-button:hover {
+    background-color: #5a9a54;
+}
+
+/* Focus styles */
+.key:focus {
+    outline: 2px solid var(--correct-color);
+    outline-offset: 2px;
+}
+
+.header-btn:focus,
+.close-btn:focus,
+.new-game-button:focus {
+    outline: 2px solid var(--text-secondary);
+    outline-offset: 2px;
+}
